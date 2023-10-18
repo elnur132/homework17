@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{% url 'add-task' %}">Add task</a>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Descitpion</th>
+            <th>Date</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.name }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.date }}</td>
+            <td><a href="{% url 'update-task' id=task.id %}">Update</a></td>
+            <td><a href="{% url 'delete-task' id=task.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
